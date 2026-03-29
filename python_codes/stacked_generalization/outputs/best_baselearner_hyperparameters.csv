@@ -1,0 +1,6 @@
+Model,Params
+Random Forest,"{'criterion': 'gini', 'max_depth': 317, 'max_features': 0.5095112439572701, 'min_samples_split': 2}"
+SVC,"{'C': 0.18431731374265065, 'gamma': 0.000545904636001278, 'kernel': 'linear'}"
+KNN,"{'n_neighbors': 15, 'metric': 'euclidean'}"
+Logistic Regression,"{'C': 0.7056880369338618, 'l1_ratio': 0.7929914495807517}"
+XGBoost,"{'gamma': 0.5630580903225141, 'max_depth': 21, 'min_child_weight': 6.104736025070555, 'learning_rate': 0.15461155301023224, 'subsample': 0.7322903881623358, 'colsample_bytree': 0.31262572002521044, 'colsample_bylevel': 0.935018302115501, 'colsample_bynode': 0.5561032669241233, 'lambda': 0.009947257418881245, 'alpha': 0.0005426865176135974, 'n_estimators': 703}"
