@@ -53,7 +53,7 @@ Across all stacking configurations, model probabilities show a strong positive r
 
 ![Spatial Probability Map](figures/fig_spatial.png)
 
-*Spatial distribution of mangrove probability derived from stacked generalization (Random Forest, no feature pass-through), with zoomed examples and comparison to Global Mangrove Watch (GMW) and MAXAR high-resolution imagery.*
+*Fig2: a. Spatial distribution of mangrove probability derived from stacked generalization (Random Forest, no feature pass-through), with b. zoomed examples and c. comparison to Global Mangrove Watch (GMW) and d. MAXAR high-resolution imagery. The values indicates probability range from 0 (dark gray; very likely non-mangrove) to 1 (pale yellow; very likely mangrove).*
 
 The final probability map represents a continuous surface of mangrove likelihood, where values range from 0 (very likely non-mangrove) to 1 (very likely mangrove). This configuration was selected due to its strong alignment with high-confidence human interpretation while remaining interpretable.
 
@@ -63,7 +63,7 @@ Zoomed examples reveal that intermediate probabilities (≈0.3–0.7) are not ra
 
 Compared to the Global Mangrove Watch (GMW) binary product, the continuous probability map better resolves non-mangrove areas and captures fine-scale landscape structure visible in high-resolution MAXAR imagery.
 
-These patterns demonstrate that uncertainty is spatially organized and closely linked to environmental heterogeneity, providing actionable information for targeted validation and monitoring.
+These patterns show that uncertainty is spatially organized and closely linked to environmental heterogeneity, and provide actionable information for targeted validation and monitoring.
 
 ---
 ## Repository Structure
