@@ -145,6 +145,20 @@ The repository follows a structured pipeline:
 - Multi-temporal imagery
 - Derived spectral indices and CCDC features
 
+#### Base learner inference maps
+- `projects/ee-islamkm/assets/baselearner_knn_mngrv`
+- `projects/ee-islamkm/assets/baselearner_logreg_mngrv`
+- `projects/ee-islamkm/assets/baselearner_rf_mngrv`
+- `projects/ee-islamkm/assets/baselearner_svc_mgrv`
+- `projects/ee-islamkm/assets/baselearner_xgb_mgrv`
+
+#### Stacked generalization inference maps
+- `projects/ee-ashrafulcuetbd/assets/stacking_logreg_npt_prediction`
+- `projects/ee-ashrafulcuetbd/assets/stacking_logreg_pt_prediction`
+- `projects/ee-ashrafulcuetbd/assets/stacking_rf_npt_prediction`
+- `projects/ee-ashrafulcuetbd/assets/stacking_rf_pt_prediction`
+
+These assets store model-derived probability surfaces used for uncertainty analysis, comparison with interpreter scores, and generation of final probability maps.
 (Data access may depend on external platforms such as Google Earth Engine.)
 
 ---
