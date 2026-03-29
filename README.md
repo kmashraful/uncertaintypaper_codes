@@ -1,2 +1,149 @@
-# uncertaintypaper_codes
-Code repo for the study
+# Accuracy is not certainty: code for uncertainty-aware mangrove mapping
+
+This repository contains the code accompanying the paper:
+
+**Islam et al. (2025)**  
+*Accuracy is not certainty: using model agreement and human judgment to assess spatial uncertainty in high-resolution mangrove mapping*
+
+---
+
+## Overview
+
+Environmental maps derived from remote sensing and machine learning are often interpreted as definitive representations of reality. However, high classification accuracy does not necessarily imply spatially reliable knowledge.
+
+This repository implements a workflow that reframes classification outputs as **probabilistic representations of epistemic stability**, using:
+
+- multiple base learners
+- stacked generalization
+- spatially explicit measures of model agreement
+
+Rather than asking *“what is the predicted class?”*, this work asks:
+
+> **Where are predictions stable, and where are they fundamentally uncertain?**
+
+The approach demonstrates that **continuous ensemble probabilities encode structured gradients of certainty**, where:
+- extreme probabilities → strong model agreement and high interpretability  
+- intermediate probabilities → disagreement among models and ambiguity in human judgment  
+
+---
+
+## Key Contributions
+
+- Introduces a **model-pluralistic framework** for spatial uncertainty assessment
+- Uses **base learner disagreement (standard deviation)** as a proxy for epistemic uncertainty
+- Demonstrates that **stacked probabilities capture structured uncertainty gradients**
+- Compares model-derived uncertainty with **independent human interpretation**
+- Moves beyond accuracy metrics toward **decision-relevant uncertainty mapping**
+
+---
+
+## Repository Structure
+```
+├── preprocessing/        # Image preprocessing and masking (NICFI Planet data)
+├── feature_engineering/  # Spectral indices + CCDC coefficient generation
+├── modeling/             # Base learner training (RF, XGB, SVC, KNN, Logistic)
+├── stacking/             # Stacked generalization (super learner models)
+├── uncertainty/          # Base learner SD and agreement analysis
+├── visualization/        # Figures (e.g., SD vs probability relationships)
+└── notebooks/            # Analysis and figure generation notebooks
+```
+
+---
+
+## Workflow
+
+The repository follows a structured pipeline:
+
+1. **Preprocessing**
+   - Apply masking to remove clouds, haze, and tidal effects
+   - Generate seasonal composites (e.g., lowest NDWI)
+
+2. **Feature Engineering**
+   - Compute spectral bands and vegetation indices
+   - Extract temporal features using CCDC coefficients
+
+3. **Model Training**
+   - Train multiple base learners:
+     - Random Forest
+     - XGBoost
+     - Support Vector Classifier
+     - KNN
+     - Logistic Regression
+   - Use spatial cross-validation (BlockCV, ~25 km blocks)
+
+4. **Stacked Generalization**
+   - Combine base learner predictions into continuous probability surfaces
+   - Evaluate stacking with different meta-learners and configurations
+
+5. **Uncertainty Quantification**
+   - Compute **per-pixel standard deviation** across base learners
+   - Identify regions of:
+     - agreement (low SD)
+     - disagreement (high SD)
+
+6. **Analysis of Epistemic Stability**
+   - Compare base learner variability with stacked probabilities
+   - Examine how uncertainty is distributed spatially
+
+7. **Human Interpretation Comparison**
+   - Evaluate whether model uncertainty aligns with human-perceived ambiguity
+   - Use blinded interpreters assigning continuous confidence scores
+
+---
+
+## Methods Highlights
+
+- **Spatial cross-validation**  
+  BlockCV with ~25 km spatial structure to account for autocorrelation
+
+- **Model ensemble design**  
+  Multiple base learners reflecting different inductive biases
+
+- **Stacked generalization**  
+  Integrates predictions while preserving disagreement signals
+
+- **Probability calibration (evaluated)**  
+  Platt scaling, isotonic regression, and beta calibration
+
+- **Uncertainty representation**  
+  Standard deviation across base learners used as a proxy for epistemic uncertainty
+
+---
+
+## Key Insight
+
+High accuracy models can still produce **spatially structured uncertainty**.
+
+This workflow shows that:
+- model disagreement is not noise  
+- it is a **signal of epistemic limits**  
+
+Continuous probability maps therefore provide:
+- more informative outputs than binary classifications  
+- actionable guidance for **field validation and decision-making**
+
+---
+
+## Data
+
+- NICFI PlanetScope basemaps (4.77 m resolution)
+- Multi-temporal imagery (2020–2023)
+- Derived spectral indices and CCDC features
+
+(Data access may depend on external platforms such as Google Earth Engine.)
+
+---
+
+## Reproducibility Notes
+
+- Spatial cross-validation is repeated multiple times for stability
+- Hyperparameter tuning performed using Optuna
+- Results emphasize consistency across model configurations rather than single-model performance
+
+---
+
+## Citation
+
+If you use this code, please cite:
+Islam, K. M. A., Kilbride, J. B., Murillo-Sandoval, P. J., & Kennedy, R. E. (2025).
+Accuracy is not certainty: using model agreement and human judgment to assess spatial uncertainty in high-resolution mangrove mapping.
