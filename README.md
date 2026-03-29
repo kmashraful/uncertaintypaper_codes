@@ -22,7 +22,7 @@ Rather than asking *“what is the predicted class?”*, this work asks:
 > **Where are predictions stable, and where are they fundamentally uncertain?**
 
 The approach demonstrates that **continuous ensemble probabilities encode structured gradients of certainty**, where:
-- extreme probabilities → strong model agreement and high interpretability  
+- probabilities at two end of spectrum → strong model agreement and high interpretability  
 - intermediate probabilities → disagreement among models and ambiguity in human judgment  
 
 ---
@@ -56,7 +56,7 @@ The repository follows a structured pipeline:
 
 1. **Preprocessing**
    - Apply masking to remove clouds, haze, and tidal effects
-   - Generate seasonal composites (e.g., lowest NDWI)
+   - Generate seasonal composites
 
 2. **Feature Engineering**
    - Compute spectral bands and vegetation indices
@@ -110,24 +110,10 @@ The repository follows a structured pipeline:
 
 ---
 
-## Key Insight
-
-High accuracy models can still produce **spatially structured uncertainty**.
-
-This workflow shows that:
-- model disagreement is not noise  
-- it is a **signal of epistemic limits**  
-
-Continuous probability maps therefore provide:
-- more informative outputs than binary classifications  
-- actionable guidance for **field validation and decision-making**
-
----
-
 ## Data
 
 - NICFI PlanetScope basemaps (4.77 m resolution)
-- Multi-temporal imagery (2020–2023)
+- Multi-temporal imagery
 - Derived spectral indices and CCDC features
 
 (Data access may depend on external platforms such as Google Earth Engine.)
