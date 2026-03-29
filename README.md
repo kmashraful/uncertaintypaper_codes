@@ -27,7 +27,7 @@ The approach demonstrates that **continuous ensemble probabilities encode struct
 
 ---
 
-## Key Contributions
+## Key contributions
 
 - Introduces a **model-pluralistic framework** for spatial uncertainty assessment
 - Uses **base learner disagreement (standard deviation)** as a proxy for epistemic uncertainty
@@ -35,6 +35,19 @@ The approach demonstrates that **continuous ensemble probabilities encode struct
 - Compares model-derived uncertainty with **independent human interpretation**
 - Moves beyond accuracy metrics toward **decision-relevant uncertainty mapping**
 
+---
+
+## Key result: Does model uncertainty aligns with human interpretation
+
+![Interpreter vs Model](figures/fig_scatterplot.png)
+
+*Scatterplots of interpreter mean values versus model-predicted probabilities for four stacked generalization configurations (Stacking-LogReg-NPT, Stacking-LogReg-PT, Stacking-RF-NPT, Stacking-RF-PT).*
+
+Stacked probability maps encode disagreement among base learners as probabilistic uncertainty. To evaluate whether these probabilities correspond to meaningful uncertainty in real-world interpretation, we compared model predictions against independent human interpretation scores.
+
+Across all stacking configurations, model probabilities show a strong positive relationship with interpreter confidence. Pixels with high model agreement align closely with interpreter judgments near the extremes of absence or presence, while pixels with weaker agreement exhibit greater dispersion around the 1:1 relationship.
+
+This pattern indicates that ensemble-derived probabilities capture not only model behavior, but also **perceptual ambiguity in the landscape**, linking statistical uncertainty to human interpretability.
 ---
 
 ## Repository Structure
