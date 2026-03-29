@@ -37,7 +37,7 @@ The approach demonstrates that **continuous ensemble probabilities encode struct
 
 ---
 
-## Key result: Does model uncertainty aligns with human interpretation
+## Does model uncertainty aligns with human interpretation?
 
 ![Interpreter vs Model](figures/fig_scatterplot.png)
 
@@ -49,6 +49,23 @@ Across all stacking configurations, model probabilities show a strong positive r
 
 ---
 
+## Spatial variability in classification represented by stacked generalized map
+
+![Spatial Probability Map](figures/fig_spatial.png)
+
+*Spatial distribution of mangrove probability derived from stacked generalization (Random Forest, no feature pass-through), with zoomed examples and comparison to Global Mangrove Watch (GMW) and MAXAR high-resolution imagery.*
+
+The final probability map represents a continuous surface of mangrove likelihood, where values range from 0 (very likely non-mangrove) to 1 (very likely mangrove). This configuration was selected due to its strong alignment with high-confidence human interpretation while remaining interpretable.
+
+High-probability regions correspond primarily to closed-canopy mangrove areas, whereas lower and intermediate values are concentrated in more heterogeneous environments, particularly in western portions of the forest with open canopy structure.
+
+Zoomed examples reveal that intermediate probabilities (≈0.3–0.7) are not randomly distributed, but occur systematically along geomorphological features such as river confluences, tidal creeks, and drainage channels. These areas frequently correspond to mixed or transitional vegetation conditions.
+
+Compared to the Global Mangrove Watch (GMW) binary product, the continuous probability map better resolves non-mangrove areas and captures fine-scale landscape structure visible in high-resolution MAXAR imagery.
+
+These patterns demonstrate that uncertainty is spatially organized and closely linked to environmental heterogeneity, providing actionable information for targeted validation and monitoring.
+
+---
 ## Repository Structure
 ```
 ├── preprocessing/        # Image preprocessing and masking (NICFI Planet data)
