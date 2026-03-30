@@ -1,7 +1,7 @@
 <div align="center">
 
 # Accuracy is not certainty: 
-## code for uncertainty-aware mangrove mapping
+# code for uncertainty-aware mangrove mapping
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 [![Platform: GEE](https://img.shields.io/badge/Platform-Google%20Earth%20Engine-green.svg)](https://earthengine.google.com/)
@@ -13,7 +13,9 @@
 
 </div>
 
-This repository contains the code accompanying the paper:
+---
+
+## This repository contains the code accompanying the paper:
 
 **Islam et al. (2025)**  
 *Accuracy is not certainty: using model agreement and human judgment to assess spatial uncertainty in high-resolution mangrove mapping*
