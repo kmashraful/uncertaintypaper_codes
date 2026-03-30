@@ -16,7 +16,6 @@
 ---
 
 ## This repository contains the code accompanying the paper:
-
 **Islam et al. (2025)**  
 *Accuracy is not certainty: using model agreement and human judgment to assess spatial uncertainty in high-resolution mangrove mapping*
 
