@@ -4,7 +4,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 [![Platform: GEE](https://img.shields.io/badge/Platform-Google%20Earth%20Engine-green.svg)](https://earthengine.google.com/)
-[![Data: NICFI Planet](https://img.shields.io/badge/Data-NICFI%20Planet-orange.svg)](https://www.planet.com/nicfi/)
+[![Data: Planet](https://img.shields.io/badge/Data-NICFI%20Planet-orange.svg)](https://www.planet.com/nicfi/)
 
 <img src="figures/study_area.png" alt="Study area: Sundarbans mangrove forest" width="650"/>
 
