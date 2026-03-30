@@ -9,7 +9,7 @@
 
 <img src="figures/study_area.png" alt="Study area: Sundarbans mangrove forest" width="650"/>
 
-<sub>Study area: The Sundarbans mangrove forest and the BFD ranges are shown on the study area map. Mangrove and non--mangrove sample points that were used for this study are illustrated. The Sundarbans, one of the world’s largest continuous mangrove forest and a demanding test case (for our study) for evaluating spatial uncertainty in environmental maps. The region has experienced sustained canopy degradation driven by altered freshwater flows, land-use pressures, and salinity intrusion. In this context, identifying where model predictions are reliable—and where they are not—is important for stakeholders for effective monitoring and decision-making..</sub>
+<sub>Study area: The Sundarbans mangrove forest and the BFD ranges are shown on the study area map. Mangrove and non-mangrove sample points that were used for this study are illustrated. The Sundarbans, one of the world’s largest continuous mangrove forest and a demanding test case (for our study) for evaluating spatial uncertainty in environmental maps. The region has experienced sustained canopy degradation driven by altered freshwater flows, land-use pressures, and salinity intrusion. In this context, identifying where model predictions are reliable (and where they are not) is important for stakeholders for effective monitoring and decision-making..</sub>
 
 </div>
 
