@@ -1,4 +1,16 @@
+<div align="center">
+
 # Accuracy is not certainty: code for uncertainty-aware mangrove mapping
+
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
+[![Platform: GEE](https://img.shields.io/badge/Platform-Google%20Earth%20Engine-green.svg)](https://earthengine.google.com/)
+[![Data: NICFI Planet](https://img.shields.io/badge/Data-NICFI%20Planet-orange.svg)](https://www.planet.com/nicfi/)
+
+<img src="figures/study_area.png" alt="Study area: Sundarbans mangrove forest" width="650"/>
+
+<sub>Study area: The Sundarbans mangrove forest and the BFD ranges are shown on the study area map. Mangrove and non--mangrove sample points that were used for this study are illustrated.</sub>
+
+</div>
 
 This repository contains the code accompanying the paper:
 
