@@ -155,9 +155,7 @@ The repository follows a structured pipeline:
 
 ## Data
 
-- NICFI PlanetScope basemaps (4.77 m resolution)
-- Multi-temporal imagery
-- Derived spectral indices and CCDC features
+- NICFI PlanetScope basemaps (4.77 m resolution) multi-temporal image collection and derived spectral indices and CCDC features
 
 #### Base learner inference maps
 - `projects/ee-islamkm/assets/baselearner_knn_mngrv`
