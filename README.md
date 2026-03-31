@@ -45,7 +45,7 @@ The approach demonstrates that **continuous ensemble probabilities encode struct
 
 - Introduces a **model-pluralistic framework** for spatial uncertainty assessment
 - Uses **base learner disagreement (standard deviation)** as a proxy for epistemic uncertainty
-- Demonstrates that **stacked probabilities capture structured uncertainty gradients**
+- Demonstrates that **stacked probabilities capture structured uncertainty gradients of base learners**
 - Compares model-derived uncertainty with **independent human interpretation**
 - Moves beyond accuracy metrics toward **decision-relevant uncertainty mapping**
 
