@@ -1,7 +1,7 @@
 <div align="center">
 
 # Accuracy is not certainty: 
-# code for uncertainty-aware mangrove mapping
+# code for uncertainty-aware mangrove mapping to inform stakeholder decision making
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 [![Platform: GEE](https://img.shields.io/badge/Platform-Google%20Earth%20Engine-green.svg)](https://earthengine.google.com/)
@@ -23,31 +23,33 @@
 
 ## Overview
 
-Environmental maps derived from remote sensing and machine learning are often interpreted as definitive representations of reality. However, high classification accuracy does not necessarily imply spatially reliable knowledge.
+Environmental maps derived from remote sensing and machine learning are often interpreted as definitive representations of reality. However, high classification accuracy does not necessarily imply spatially reliable knowledge. Accuracy metrics are often taken for granted as sufficient justification for producing and using binary maps, even though they summarize performance globally and do not reveal where predictions are stable or where they are unreliable. This gap is rarely interrogated in the literature, yet it is critical for decision-making in spatial contexts.
 
 This repository implements a workflow that reframes classification outputs as **probabilistic representations of epistemic stability**, using:
 
-- multiple base learners
-- stacked generalization
-- spatially explicit measures of model agreement
+- multiple base learners  
+- stacked generalization  
+- spatially explicit measures of model agreement  
 
 Rather than asking *“what is the predicted class?”*, this work asks:
 
 > **Where are predictions stable, and where are they fundamentally uncertain?**
 
 The approach demonstrates that **continuous ensemble probabilities encode structured gradients of certainty**, where:
-- probabilities at two end of spectrum → strong model agreement and high interpretability  
-- intermediate probabilities → disagreement among models and ambiguity in human judgment  
+- probabilities near 0 or 1 indicate strong model agreement and high interpretability  
+- intermediate probabilities indicate disagreement among models and ambiguity in human judgment  
 
 ---
 
 ## Key contributions
 
 - Introduces a **model-pluralistic framework** for spatial uncertainty assessment
-- Uses **base learner disagreement (standard deviation)** as a proxy for epistemic uncertainty
+- Uses **base learner disagreement (standard deviation)** as a proxy for epistemic uncertainty, that is, uncertainty due to limited knowledge, which appears as disagreement among multiple plausible models trained on the same data
 - Demonstrates that **stacked probabilities capture structured uncertainty gradients of base learners**
 - Compares model-derived uncertainty with **independent human interpretation**
 - Moves beyond accuracy metrics toward **decision-relevant uncertainty mapping**
+
+Although demonstrated for mangrove mapping, this framework is not domain-specific. It can be generalized to other mapping problems where uncertainty itself carries decision value. For example, in damage mapping, building-level damage probabilities can guide prioritization of field assessment and resource allocation; in disaster risk zoning, probability surfaces can represent gradients of perceived or modeled risk rather than fixed boundaries; in snow depth mapping, estimates can be paired with uncertainty bounds to inform hydrological forecasting and water resource planning. In each case, the objective shifts from producing a single definitive map to representing where predictions are stable and where knowledge remains uncertain.
 
 ---
 
@@ -83,7 +85,7 @@ These patterns show that uncertainty is spatially organized and closely linked t
 ## Repository Structure
 ```
 ├── preprocessing/        # Image preprocessing and masking (NICFI Planet data)
-├── feature_engineering/  # Spectral indices + CCDC coefficient generation
+├── feature_engineering/  # Spectral indices + CCDC (Continuous Change Detection and Classification) coefficient generation
 ├── modeling/             # Base learner training (RF, XGB, SVC, KNN, Logistic)
 ├── stacking/             # Stacked generalization (super learner models)
 ├── uncertainty/          # Base learner SD and agreement analysis
@@ -103,7 +105,7 @@ The repository follows a structured pipeline:
 
 2. **Feature Engineering**
    - Compute spectral bands and vegetation indices
-   - Extract temporal features using CCDC coefficients
+   - Extract temporal features using CCDC (Continuous Change Detection and Classification; a temporal segmentation algorithm) coefficients
 
 3. **Model Training**
    - Train multiple base learners:
@@ -125,7 +127,7 @@ The repository follows a structured pipeline:
      - disagreement (high SD)
 
 6. **Analysis of Epistemic Stability**
-   - Compare base learner variability with stacked probabilities
+   - Understanding base learner variability with stacked probabilities
    - Examine how uncertainty is distributed spatially
 
 7. **Human Interpretation Comparison**
