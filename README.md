@@ -157,7 +157,7 @@ The repository follows a structured pipeline:
 
 ## Data
 
-- NICFI PlanetScope basemaps (4.77 m resolution) multi-temporal image collection and derived spectral indices and CCDC features
+- NICFI PlanetScope basemaps (4.77 m resolution) multi-temporal image collection and derived spectral indices and CCDC features [Planet NICFI Asia Basemaps available on GEE](https://developers.google.com/earth-engine/datasets/catalog/projects_planet-nicfi_assets_basemaps_asia#description)
 
 #### Base learner inference maps
 - `projects/ee-islamkm/assets/baselearner_knn_mngrv`
