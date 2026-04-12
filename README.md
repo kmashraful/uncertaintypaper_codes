@@ -82,7 +82,7 @@ Compared to the Global Mangrove Watch (GMW) binary product, the continuous proba
 These patterns show that uncertainty is spatially organized and closely linked to environmental heterogeneity, and provide actionable information for targeted validation and monitoring.
 
 ---
-## Repository Structure
+## Repository structure
 ```
 
 ```
