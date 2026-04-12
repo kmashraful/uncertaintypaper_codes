@@ -84,20 +84,12 @@ These patterns show that uncertainty is spatially organized and closely linked t
 ---
 ## Repository Structure
 ```
-├── preprocessing/        # Image preprocessing and masking (NICFI Planet data)
-├── feature_engineering/  # Spectral indices + CCDC (Continuous Change Detection and Classification) coefficient generation
-├── modeling/             # Base learner training (RF, XGB, SVC, KNN, Logistic)
-├── stacking/             # Stacked generalization (super learner models)
-├── uncertainty/          # Base learner SD and agreement analysis
-├── visualization/        # Figures (e.g., SD vs probability relationships)
-└── notebooks/            # Analysis and figure generation notebooks
+
 ```
 
 ---
 
 ## Workflow
-
-The repository follows a structured pipeline:
 
 1. **Preprocessing**
    - Apply masking to remove clouds, haze, and tidal effects
@@ -136,7 +128,7 @@ The repository follows a structured pipeline:
 
 ---
 
-## Methods Highlights
+## Methods highlights
 
 - **Spatial cross-validation**  
   BlockCV with ~25 km spatial structure to account for autocorrelation
@@ -177,7 +169,7 @@ These assets store model-derived probability surfaces used for uncertainty analy
 
 ---
 
-## Reproducibility Notes
+## Notes
 
 - Spatial cross-validation is repeated multiple times for stability
 - Hyperparameter tuning performed using Optuna
