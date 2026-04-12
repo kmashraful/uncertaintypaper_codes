@@ -84,7 +84,85 @@ These patterns show that uncertainty is spatially organized and closely linked t
 ---
 ## Repository structure
 ```
-
+uncertaintypaper_codes/
+│
+├── README.md
+├── LICENSE
+│
+├── GEE_codes/                                          # Google Earth Engine JavaScript scripts
+│   ├── featureextract.js                               # Extract spectral features from Planet NICFI composites
+│   ├── featureextract_CCDC.js                          # Extract CCDC temporal segmentation coefficients
+│   ├── interfaceforvisualizinginterpretervalues.js     # Interactive GEE app for visualizing interpreter scores
+│   ├── pointswheremodeldisagreed.js                    # Visualize locations of model disagreement
+│   └── pointswheremodelsagreed.js                      # Visualize locations of model agreement
+│
+├── figures/                                            # Figures used in the README and paper
+│   ├── study_area.png                                  # Study area map of the Sundarbans
+│   ├── fig_scatterplot.png                             # Interpreter vs. model probability scatterplots
+│   └── fig_spatial.png                                 # Spatial probability map from stacked generalization
+│
+└── python_codes/                                       # All Python-based analysis
+    │
+    ├── baselearnerSD_cleaned.ipynb                     # Compute per-pixel standard deviation across base learners
+    ├── hero_scatter_cleaned.ipynb                      # Generate interpreter vs. model scatterplots (Fig. 1)
+    ├── sd_compare clear.ipynb                          # Compare SD distributions across stacking configurations
+    │
+    └── stacked_generalization/                         # Core modeling pipeline
+        │
+        ├── conda_env.txt                              # Conda environment specification for reproducibility
+        ├── .gitignore
+        │
+        ├── data/
+        │   └── SamplePointsExport_nicfi_all.csv       # Reference sample points exported from GEE
+        │
+        ├── scripts/                                   # Numbered scripts run in sequence (01-08)
+        │   ├── 01_compute_correlogram.R               # Compute spatial correlogram to determine CV block size
+        │   ├── 02_generate_cv_blocks.R                # Generate spatial CV blocks (~25 km) using blockCV
+        │   ├── 03_format_modeling_datasets.ipynb/.py   # Format raw data into modeling-ready train/test splits
+        │   ├── 04_tune_baselearners.ipynb/.py          # Hyperparameter tuning with Optuna for each base learner
+        │   ├── 05_run_repeated_cv.ipynb/.py            # Run repeated spatial cross-validation (100 iterations)
+        │   ├── 06_format_cv_summary_table.ipynb/.py    # Summarize CV results into accuracy tables
+        │   ├── 07_train_full_models.ipynb/.py          # Train final base learners and stacking meta-learners
+        │   ├── 08_apply_models.ipynb/.py               # Apply trained models to generate probability surfaces
+        │   │
+        │   ├── helpers/                               # Supporting scripts for batch processing and GEE export
+        │   │   ├── export_feature_layers.js           # GEE script to export feature layers as rasters
+        │   │   ├── mosaic_planet_features.py          # Mosaic exported Planet feature tiles
+        │   │   ├── mosaic_stacking_features.py        # Mosaic stacking feature tiles
+        │   │   ├── run_all_modeling_scripts.py         # Batch runner for the full modeling pipeline
+        │   │   ├── run_all_inference_scripts.py        # Batch runner for the full inference pipeline
+        │   │   └── 03h_make_basic_boxplots.py          # Generate boxplots of feature distributions
+        │   │
+        │   └── utils/                                 # Shared utility modules
+        │       ├── constants.py                       # Global constants (random seed, Optuna trial count, etc.)
+        │       ├── helpers.py                         # Evaluation metrics, calibration, and scoring functions
+        │       └── optimize_models.py                 # Optuna objective functions for each base learner
+        │
+        ├── intermediate_outputs/                      # Intermediate data products (auto-generated)
+        │   ├── raw_tuning_dataset.csv                 # Raw tuning data before formatting
+        │   ├── tuning_dataset.csv                     # Formatted tuning dataset
+        │   ├── spatial_blocks_tuning.geojson           # Spatial block geometries for CV
+        │   ├── raw_repeated_cv_datasets/              # 100 raw CV split datasets (cv_dataset_1..100.csv)
+        │   └── formatted_repeated_cv_datasets/        # 100 formatted CV split datasets (cv_dataset_1..100.csv)
+        │
+        ├── models/                                    # Serialized model artifacts (.joblib)
+        │   ├── scaler.joblib                          # Fitted feature scaler
+        │   ├── baselearners/                          # Trained base learner and stacking meta-learner models
+        │   │   ├── baselearner_{knn,logreg,rf,svc,xgb}_model.joblib
+        │   │   └── stacking_{logreg,rf}_{np,npt}.joblib
+        │   └── optuna_runs/                           # Optuna study objects for each base learner
+        │       └── baselearner_{knn,logreg,rf,svc,xgb}_optuna.joblib
+        │
+        └── outputs/                                   # Final results and figures
+            ├── best_baselearner_hyperparameters.csv    # Best hyperparameters selected by Optuna
+            ├── model_cv_accuracy.csv                  # Raw CV accuracy results
+            ├── formatted_cv_accuracy.csv              # Formatted accuracy summary table
+            ├── formatted_cv_accuracy_calibration.csv  # Accuracy summary with calibration applied
+            ├── formatted_cv_no_calibration.csv        # Accuracy summary without calibration
+            ├── correlogram.RData                      # Saved correlogram object from R
+            ├── correlogram_plot.png                   # Correlogram plot used to determine block size
+            └── figure_folder/                         # Base learner performance metric plots
+                └── baselearner_{Accuracy,AUC,F1-Score,Precision,Recall}.PNG
 ```
 
 ---
