@@ -57,7 +57,7 @@ Although demonstrated for mangrove mapping, this framework is not domain-specifi
 
 ![Interpreter vs Model](figures/fig_heroscatterplot.png)
 
-*Fig1: Scatterplots of interpreter mean values versus model-predicted probabilities for four stacked generalization configurations (Stacking-LogReg-NPT, Stacking-LogReg-PT, Stacking-RF-NPT, Stacking-RF-PT).*
+*Fig1: Scatterplots of interpreter mean values versus model-predicted probabilities for four stacked generalization configurations.*
 
 Stacked probability maps encode disagreement among base learners as probabilistic uncertainty. To evaluate whether these probabilities correspond to meaningful uncertainty in real-world interpretation, we compared model predictions against independent human interpretation scores.
 
@@ -69,7 +69,7 @@ Across all stacking configurations, model probabilities show a strong positive r
 
 ![Spatial Probability Map](figures/fig_layout_paneled.png)
 
-*Fig2: a. Spatial distribution of mangrove probability derived from stacked generalization (Random Forest, no feature pass-through), with b. zoomed examples and c. comparison to Global Mangrove Watch (GMW) and d. MAXAR high-resolution imagery. The values indicates probability range from 0 (dark gray; very likely non-mangrove) to 1 (pale yellow; very likely mangrove).*
+*Fig2: a. Spatial distribution of mangrove probability derived from stacked generalization (Random Forest, feature pass-through), with b. zoomed examples and c. comparison to Global Mangrove Watch (GMW) and d. MAXAR high-resolution imagery. The values indicates probability range from 0 (dark gray; very likely non-mangrove) to 1 (pale yellow; very likely mangrove).*
 
 The final probability map represents a continuous surface of mangrove likelihood, where values range from 0 (very likely non-mangrove) to 1 (very likely mangrove). This configuration was selected due to its strong alignment with high-confidence human interpretation while remaining interpretable.
 
@@ -103,9 +103,25 @@ uncertaintypaper_codes/
 │
 └── python_codes/                                       # All Python-based analysis
     │
-    ├── baselearnerSD_cleaned.ipynb                     # Compute per-pixel standard deviation across base learners
-    ├── hero_scatter_cleaned.ipynb                      # Generate interpreter vs. model scatterplots (Fig. 1)
-    ├── sd_compare clear.ipynb                          # Compare SD distributions across stacking configurations
+    ├── baselearnerSD_cleaned.ipynb                     # Per-pixel standard deviation across base learners
+    ├── hero_scatter_cleaned.ipynb                      # Original Fig. 7 scatter (superseded; see revision_2026/hero_scatter)
+    ├── sd_compare clear.ipynb                          # Original Fig. 5 SD comparison (superseded; see revision_2026/figure5_model_vs_interpreter)
+    │
+    ├── revision_2026/                                  # Updated analysis for the revised manuscript (2026)
+    │   ├── README.md                                   # How to run and verify these three notebooks
+    │   ├── requirements.txt                            # Python dependencies (pip)
+    │   │
+    │   ├── figure5_model_vs_interpreter/               # Fig. 5: model vs interpreter SD (two-panel redesign)
+    │   │   ├── figure5_model_vs_interpreter.ipynb
+    │   │   └── outputs/                                # figure (png/pdf), per-point CSV, Spearman values
+    │   │
+    │   ├── hero_scatter/                               # Fig. 7: interpreter mean vs stacking probability
+    │   │   ├── hero_scatter.ipynb
+    │   │   └── outputs/                                # figure (png/pdf), per-point CSV
+    │   │
+    │   └── area_estimation_redd/                       # Tables 3-4 + supplement: Olofsson area + REDD+ value
+    │       ├── area_estimation_redd.ipynb
+    │       └── outputs/                                # bin counts, Olofsson table, carbon/REDD table, CSVs
     │
     └── stacked_generalization/                         # Core modeling pipeline
         │
@@ -258,5 +274,5 @@ These assets store model-derived probability surfaces used for uncertainty analy
 ## Citation
 
 If you use this code, please cite:
-Islam, K. M. A., Kilbride, J. B., Murillo-Sandoval, P. J., & Kennedy, R. E. (2025).
+Islam, K. M. A., Kilbride, J. B., Murillo-Sandoval, P. J., & Kennedy, R. E. (2026).
 Accuracy is not certainty: using model agreement and human judgment to assess spatial uncertainty in high-resolution mangrove mapping.
