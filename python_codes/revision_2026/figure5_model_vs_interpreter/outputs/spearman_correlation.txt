@@ -1,0 +1,3 @@
+Spearman rho (overall, n=400): rho = 0.1670, p = 0.0007972
+Spearman rho (consensus, n=200): rho = 0.0614, p = 0.388
+Spearman rho (disagreement, n=200): rho = 0.1869, p = 0.008046

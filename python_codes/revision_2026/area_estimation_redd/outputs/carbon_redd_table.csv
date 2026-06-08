@@ -1,0 +1,4 @@
+estimate,area_ha,carbon_Mt_C,co2e_Mt,redd_USD_M_at_$5,redd_USD_M_at_$15,redd_USD_M_at_$50
+central,381194,99.1,363.4,1817,5451,18170
+95% CI lower,367934,95.7,350.8,1754,5262,17540
+95% CI upper,394455,102.6,376.0,1880,5640,18800
