@@ -16,7 +16,7 @@
 ---
 
 ## This repository contains the code accompanying the paper:
-**Islam et al. (2025)**  
+**Islam et al. (2026)**  
 *Accuracy is not certainty: using model agreement and human judgment to assess spatial uncertainty in high-resolution mangrove mapping*
 
 ---
@@ -55,7 +55,7 @@ Although demonstrated for mangrove mapping, this framework is not domain-specifi
 
 ## Does model uncertainty aligns with human interpretation?
 
-![Interpreter vs Model](figures/fig_scatterplot.png)
+![Interpreter vs Model](figures/fig_heroscatterplot.png)
 
 *Fig1: Scatterplots of interpreter mean values versus model-predicted probabilities for four stacked generalization configurations (Stacking-LogReg-NPT, Stacking-LogReg-PT, Stacking-RF-NPT, Stacking-RF-PT).*
 
@@ -67,7 +67,7 @@ Across all stacking configurations, model probabilities show a strong positive r
 
 ## Spatial variability in classification represented by stacked generalized map
 
-![Spatial Probability Map](figures/fig_spatial.png)
+![Spatial Probability Map](figures/fig_layout_paneled.png)
 
 *Fig2: a. Spatial distribution of mangrove probability derived from stacked generalization (Random Forest, no feature pass-through), with b. zoomed examples and c. comparison to Global Mangrove Watch (GMW) and d. MAXAR high-resolution imagery. The values indicates probability range from 0 (dark gray; very likely non-mangrove) to 1 (pale yellow; very likely mangrove).*
 
