@@ -98,8 +98,8 @@ uncertaintypaper_codes/
 │
 ├── figures/                                            # Figures used in the README and paper
 │   ├── study_area.png                                  # Study area map of the Sundarbans
-│   ├── fig_scatterplot.png                             # Interpreter vs. model probability scatterplots
-│   └── fig_spatial.png                                 # Spatial probability map from stacked generalization
+│   ├── fig_heroscatterplot.png                         # Interpreter vs. model probability scatterplots
+│   └── fig_layout_paneled.png                          # Spatial probability map from stacked generalization
 │
 └── python_codes/                                       # All Python-based analysis
     │
